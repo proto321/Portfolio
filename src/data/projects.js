@@ -55,6 +55,19 @@ export const projects = [
     image: "/projects/movie/bb1.png",
 
   },
+    {
+    title: "Weather App",
+    category: "Frontend",
+    description:
+      "A simple weather application built with React that provides real-time weather information for any city using a weather API. Features include current temperature, weather conditions, humidity, wind speed, and a clean, responsive user interface.",
+    github: "https://github.com/your-username/weather-app",
+    screenshots: [
+      "/projects/movie/w1.png",
+      "/projects/movie/w2.png",
+    ],
+    demo: "https://weather-app-three-brown-87.vercel.app/",
+    image: "/projects/movie/w1.png",
+  },
   {
     title: "Portfolio Website",
     category: "Frontend",
@@ -72,4 +85,7 @@ export const projects = [
     demo: "https://portfolio-iota-sandy-iody0d0pie.vercel.app/",
     image: "/projects/portfolio.png",
   },
+
+
+ 
 ];

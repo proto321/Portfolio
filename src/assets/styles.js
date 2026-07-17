@@ -1,77 +1,347 @@
 export const styles = {
 
   typing: {
-    floatingButton: `
-      fixed
-      bottom-61
-      right-8
-      z-50
-      w-15
-      h-15
-      rounded-full
-      flex
-      items-center
-      justify-center
-      bg-gradient-to-br
-      from-blue-500
-      to-cyan-500
-      text-white
-      border
-      border-white/10
-      backdrop-blur-xl
-      shadow-[0_0_35px_rgba(59,130,246,0.45)]
-      hover:scale-110
-      hover:shadow-[0_0_45px_rgba(59,130,246,0.65)]
-      active:scale-95
-      transition-all
-      duration-300
-    `,
-      closeButton: `
-      absolute
-      top-4
-      right-4
-      z-20
-  
-      flex
-      items-center
-      justify-center
-  
-      w-10
-      h-10
-      rounded-full
-  
-      bg-white/10
-      backdrop-blur-md
-      border
-      border-white/15
-  
-      text-white
-      text-lg
-  
-      transition-all
-      duration-300
-  
-      hover:bg-blue-500
-      hover:border-blue-400
-      hover:shadow-blue
-      hover:scale-110
-  
-      active:scale-95
-    `,
-  
-   modal: `
+  floatingButton: `
+    fixed
+    bottom-61
+    right-8
+    z-50
+    w-15
+    h-15
+    rounded-full
+    flex
+    items-center
+    justify-center
+    bg-gradient-to-br
+    from-blue-500
+    to-cyan-500
+    text-white
+    border
+    border-white/10
+    backdrop-blur-xl
+    shadow-[0_0_35px_rgba(59,130,246,0.45)]
+    hover:scale-110
+    hover:shadow-[0_0_45px_rgba(59,130,246,0.65)]
+    active:scale-95
+    transition-all
+    duration-300
+  `,
+
+  icon: `
+    text-white
+  `,
+
+  modal: `
     relative
-    w-[85vw]
-    max-w-3xl
-    h-[78vh]
+    w-[90vw]
+    max-w-4xl
+    h-[85vh]
     rounded-3xl
     overflow-hidden
     bg-[#151225]
     border
     border-blue-500/20
-    shadow-[0_0_60px_rgba(59,130,246,0.25)]
+    shadow-[0_20px_60px_rgba(0,0,0,.6)]
+    flex
+    flex-col
   `,
-  },
+
+  closeButton: `
+    absolute
+    top-4
+    right-4
+    z-20
+    flex
+    items-center
+    justify-center
+    w-10
+    h-10
+    rounded-full
+    bg-white/10
+    border
+    border-white/15
+    text-white
+    transition-all
+    hover:bg-blue-500
+    hover:scale-110
+    active:scale-95
+  `,
+
+  header: `
+    bg-gradient-to-r
+    from-blue-600
+    via-cyan-500
+    to-blue-700
+    text-white
+    p-6
+    border-b
+    border-white/10
+  `,
+
+  headerWrapper: `
+    space-y-4
+  `,
+
+  headerTitle: `
+    text-3xl
+    font-bold
+  `,
+
+  headerSubtitle: `
+    text-blue-100
+    text-sm
+  `,
+
+  timerRow: `
+    space-y-3
+  `,
+
+  timerInfo: `
+    flex
+    justify-between
+    text-sm
+    font-semibold
+  `,
+
+  progressTrack: `
+    h-3
+    rounded-full
+    overflow-hidden
+    bg-white/15
+  `,
+
+  progressBar: `
+    h-full
+    rounded-full
+    bg-gradient-to-r
+    from-cyan-300
+    to-blue-500
+    transition-all
+    duration-1000
+  `,
+
+  body: `
+    flex-1
+    overflow-y-auto
+    p-6
+    space-y-6
+  `,
+
+  paragraph: `
+    bg-[#0B1120]
+    border
+    border-slate-700
+    rounded-2xl
+    p-6
+    text-lg
+    leading-9
+    text-slate-300
+    min-h-[170px]
+    select-none
+  `,
+
+  textarea: `
+    w-full
+    h-40
+    resize-none
+    rounded-2xl
+    bg-slate-900
+    border
+    border-slate-700
+    p-5
+    text-white
+    placeholder:text-slate-500
+    outline-none
+    transition-all
+    focus:border-cyan-500
+    focus:ring-2
+    focus:ring-cyan-500/20
+  `,
+
+  statsGrid: `
+    grid
+    grid-cols-3
+    gap-5
+  `,
+
+  statCard: `
+    rounded-2xl
+    border
+    border-white/10
+    bg-white/5
+    p-5
+    text-center
+    backdrop-blur-xl
+  `,
+
+  statLabel: `
+    text-slate-400
+    text-sm
+  `,
+
+  accuracyValue: `
+    mt-2
+    text-3xl
+    font-bold
+    text-blue-400
+  `,
+
+  mistakeValue: `
+    mt-2
+    text-3xl
+    font-bold
+    text-red-400
+  `,
+
+  wpmValue: `
+    mt-2
+    text-3xl
+    font-bold
+    text-cyan-400
+  `,
+
+  restartContainer: `
+    flex
+    justify-center
+  `,
+
+  resultOverlay: `
+    flex
+    items-center
+    justify-center
+    h-full
+    p-8
+  `,
+
+  resultWrapper: `
+    w-full
+    max-w-4xl
+    text-center
+    space-y-8
+  `,
+
+  resultTitle: `
+    text-4xl
+    font-bold
+    text-white
+  `,
+
+  resultSubtitle: `
+    text-slate-400
+  `,
+
+  resultGrid: `
+    grid
+    grid-cols-2
+    gap-6
+  `,
+
+  resultCard: `
+    rounded-3xl
+    border
+    border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    p-8
+    transition-all
+    hover:border-cyan-400/30
+    hover:scale-[1.03]
+  `,
+
+  resultLabel: `
+    text-slate-400
+    text-lg
+    font-medium
+  `,
+
+  badgeContainer: `
+    flex
+    justify-center
+  `,
+
+  legendBadge: `
+    px-6
+    py-3
+    rounded-full
+    bg-yellow-500/20
+    border
+    border-yellow-400/40
+    text-yellow-300
+    text-xl
+    font-bold
+  `,
+
+  fastBadge: `
+    px-6
+    py-3
+    rounded-full
+    bg-cyan-500/20
+    border
+    border-cyan-400/40
+    text-cyan-300
+    text-xl
+    font-bold
+  `,
+
+  goodBadge: `
+    px-6
+    py-3
+    rounded-full
+    bg-blue-500/20
+    border
+    border-blue-400/40
+    text-blue-300
+    text-xl
+    font-bold
+  `,
+
+  practiceBadge: `
+    px-6
+    py-3
+    rounded-full
+    bg-purple-500/20
+    border
+    border-purple-400/40
+    text-purple-300
+    text-xl
+    font-bold
+  `,
+
+  buttonRow: `
+    flex
+    justify-center
+    gap-5
+    flex-wrap
+  `,
+
+  playAgainButton: `
+    px-8
+    py-4
+    rounded-2xl
+    bg-gradient-to-r
+    from-cyan-500
+    to-blue-600
+    text-white
+    font-semibold
+    hover:scale-105
+    active:scale-95
+    transition-all
+  `,
+
+  closeResultButton: `
+    px-8
+    py-4
+    rounded-2xl
+    bg-slate-800
+    border
+    border-slate-700
+    text-white
+    hover:bg-slate-700
+    hover:scale-105
+    active:scale-95
+    transition-all
+  `,
+},
   
     debug: {
       floatingButton: `

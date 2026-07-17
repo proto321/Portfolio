@@ -82,7 +82,16 @@ const TypingTest = () => {
   }, [started, finished]);
 
   const finishTest = () => {
-    const words = typed.trim().split(/\s+/).length;
+    const correctChars = typed
+    .split("")
+    .filter((c, i) => c === paragraph[i]).length;
+
+  const elapsedMinutes = (TEST_TIME - timeLeft) / 60;
+
+  const wpm =
+    elapsedMinutes > 0
+      ? Math.round((correctChars / 5) / elapsedMinutes)
+      : 0;
 
     const finalWpm = words;
 
