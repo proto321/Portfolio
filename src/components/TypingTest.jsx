@@ -171,7 +171,7 @@ const TypingTest = () => {
       >
         <FaKeyboard
         size={20}
-        className="text-white drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-pulse"
+        className={styles.typing.icon}
         />
       </button>
 
@@ -195,39 +195,26 @@ const TypingTest = () => {
 
             {/* Header */}
 
-            <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-indigo-500 rounded-t-2xl p-6 text-white">
-              <div className="w-full">
-                <h2 className="
-                    text-2xl
-                    font-extrabold
-                    bg-gradient-to-r
-                    from-white
-                    via-emerald-200
-                    to-lime-300
-                    bg-clip-text
-                    text-transparent
-                    ">
+            <div className={styles.typing.header}>
+                <div className={styles.typing.headerWrapper}>
+                <h2 className={styles.typing.headerTitle}>
                   ⌨ Typing Speed Test
                 </h2>
 
-                <p className="text-sm opacity-80 mt-2">
+                <p className={styles.typing.headerSubtitle}>
                   Type as fast and accurately as possible.
                 </p>
 
-                <div className="mt-5">
-                  <div className="flex justify-between text-xs mb-2">
+                <div className={styles.typing.timerRow}>
+                    <div className={styles.typing.timerInfo}>
                     <span>Time Left: {timeLeft}s</span>
 
                     <span>{wpm} WPM</span>
                   </div>
 
-                  <div className="w-full bg-white/10 rounded-full h-2">
+                  <div className={styles.typing.progressTrack}>
                     <div
-                      className="h-2 rounded-full bg-gradient-to-r
-                        from-blue-400
-                        via-green-400
-                        to-indigo-400
-                        animate-pulse transition-all duration-300"
+                      className={styles.typing.progressBar}
                       style={{
                         width: `${(timeLeft / TEST_TIME) * 100}%`,
                       }}
@@ -238,23 +225,8 @@ const TypingTest = () => {
             </div>
 
             {!finished ? (
-                <div className="p-6 bg-gradient-to-br from-[#0b1020] via-[#111827] to-[#071a14]">
-                <div className="
-                        relative
-                        overflow-hidden
-                        text-lg
-                        leading-10
-                        font-mono
-                        tracking-wide
-                        bg-gradient-to-br
-                        from-[#0f172a]
-                        to-[#06110c]
-                        rounded-2xl
-                        p-6
-                        border
-                        border-blue-400/20
-                        shadow-[0_0_25px_rgba(59,130,246,0.15)]
-                        ">
+              <div className={styles.typing.body}>
+               <div className={styles.typing.paragraph}>
                   {renderText()}
                 </div>
 
@@ -264,85 +236,41 @@ const TypingTest = () => {
                   onChange={handleTyping}
                   disabled={finished}
                   placeholder="Start typing here..."
-                  className="
-                        w-full
-                        mt-6
-                        h-36
-                        rounded-2xl
-                        bg-[#090d17]
-                        border
-                        border-blue-400/20
-                        p-5
-                        font-mono
-                        text-lg
-                        tracking-wide
-                        text-white
-                        placeholder:text-slate-500
-                        outline-none
-                        resize-none
-                        focus:border-blue-400
-                        focus:shadow-[0_0_25px_rgba(59,130,246,0.25)]
-                        transition-all
-                        duration-300
-                        "
+                  className={styles.typing.textarea}
                 />
 
-                <div className="grid grid-cols-3 gap-4 mt-6">
-                  <div className="bg-gradient-to-br
-                    from-slate-900
-                    to-slate-800
-                    border
-                    border-blue-500/20
-                    shadow-[0_0_20px_rgba(59,130,246,0.1)]
-                    hover:scale-105
-                    transition
-                    duration-300 rounded-xl p-4 text-center">
-                    <p className="text-slate-400 text-sm">
+                <div className={styles.typing.statsGrid}>
+                  <div className={styles.typing.statCard}>
+                    <p className={styles.typing.statLabel}>
                       Accuracy
                     </p>
 
-                    <h3 className="text-2xl font-bold text-green-400">
+                    <h3 className={styles.typing.accuracyValue}>
                       {accuracy}%
                     </h3>
                   </div>
 
-                  <div className="bg-gradient-to-br
-                    from-slate-900
-                    to-slate-800
-                    border
-                    border-blue-500/20
-                    shadow-[0_0_20px_rgba(59,130,246,0.1)]
-                    hover:scale-105
-                    transition
-                    duration-300 rounded-xl p-4 text-center">
-                    <p className="text-slate-400 text-sm">
+                  <div className={styles.typing.statCard}>
+                    <p className={styles.typing.statLabel}>
                       Mistakes
                     </p>
 
-                    <h3 className="text-2xl font-bold text-red-400">
+                      <h3 className={styles.typing.mistakeValue}> 
                       {mistakes}
                     </h3>
                   </div>
 
-                  <div className="bg-gradient-to-br
-                    from-slate-900
-                    to-slate-800
-                    border
-                    border-blue-500/20
-                    shadow-[0_0_20px_rgba(59,130,246,0.1)]
-                    hover:scale-105
-                    transition
-                    duration-300 rounded-xl p-4 text-center">
-                    <p className="text-slate-400 text-sm">
+                  <div className={styles.typing.statCard}>
+                    <p className={styles.typing.statLabel}>
                       WPM
                     </p>
 
-                    <h3 className="text-2xl font-bold text-orange-400">
+                    <h3 className={styles.typing.wpmValue}>
                       {wpm}
                     </h3>
                   </div>
                 </div>
-                                <div className="flex justify-end mt-8">
+                <div className={styles.typing.restartContainer}>
                   <button
                     onClick={startNewTest}
                     className={styles.debug.submitButton}
@@ -352,46 +280,46 @@ const TypingTest = () => {
                 </div>
               </div>
             ) : (
-             <div className="absolute inset-0 bg-gradient-to-br from-[#050816] via-[#111827] to-[#071b35] flex items-center justify-center p-8">
+             <div className={styles.typing.resultOverlay}>
 
-  <div className="w-full h-full flex flex-col justify-center items-center px-10 text-center">
+  <div className={styles.typing.resultWrapper}>
 
-    <h2 className="text-5xl font-black bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+    <h2 className={styles.typing.resultTitle}>
       ⌨ Typing Complete!
     </h2>
 
-    <p className="text-slate-400 mt-3 text-lg">
+      <p className={styles.typing.resultSubtitle}>
       Here are your typing statistics
     </p>
 
-    <div className="grid grid-cols-2 gap-8 mt-12 w-full max-w-4xl">
+    <div className={styles.typing.resultGrid}>
 
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-blue-500/20 rounded-2xl p-6">
-        <p className="text-slate-400 text-sm">⚡ WPM</p>
+      <div className={styles.typing.resultCard}>
+        <p className={styles.typing.resultLabel}>⚡ WPM</p>
 
         <h2 className="text-5xl font-bold text-cyan-400 mt-3">
           {wpm}
         </h2>
       </div>
 
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-blue-500/20 rounded-2xl p-6">
-        <p className="text-slate-400 text-sm">🎯 Accuracy</p>
+      <div className={styles.typing.resultCard}>
+        <p className={styles.typing.resultLabel}>🎯 Accuracy</p>
 
         <h2 className="text-5xl font-bold text-blue-400 mt-3">
           {accuracy}%
         </h2>
       </div>
 
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-blue-500/20 rounded-2xl p-6">
-        <p className="text-slate-400 text-sm">❌ Mistakes</p>
+      <div className={styles.typing.resultCard}>
+        <p className={styles.typing.resultLabel}>❌ Mistakes</p>
 
         <h2 className="text-5xl font-bold text-red-400 mt-3">
           {mistakes}
         </h2>
       </div>
 
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-blue-500/20 rounded-2xl p-6">
-        <p className="text-slate-400 text-sm">🏆 Best WPM</p>
+      <div className={styles.typing.resultCard}>
+        <p className={styles.typing.resultLabel}>🏆 Best WPM</p>
 
         <h2 className="text-5xl font-bold text-indigo-400 mt-3">
           {highScore}
@@ -400,64 +328,46 @@ const TypingTest = () => {
 
     </div>
 
-    <div className="mt-10">
+    <div className={styles.typing.badgeContainer}>
 
       {wpm >= 80 && (
-        <h3 className="text-cyan-400 text-3xl font-bold">
+        <h3 className={styles.typing.legendBadge}>
           👑 Typing Legend
         </h3>
       )}
 
       {wpm >= 60 && wpm < 80 && (
-        <h3 className="text-blue-400 text-3xl font-bold">
+        <h3 className={styles.typing.fastBadge}>
           🚀 Fast Typer
         </h3>
       )}
 
       {wpm >= 40 && wpm < 60 && (
-        <h3 className="text-indigo-400 text-3xl font-bold">
+        <h3 className={styles.typing.goodBadge}>
           ⌨ Good Speed
         </h3>
       )}
 
       {wpm < 40 && (
-        <h3 className="text-orange-400 text-3xl font-bold">
+        <h3 className={styles.typing.practiceBadge}>
           💪 Keep Practicing
         </h3>
       )}
 
     </div>
 
-    <div className="flex justify-center gap-5 mt-12">
+    <div className={styles.typing.buttonRow}>
 
       <button
         onClick={startNewTest}
-        className="
-        px-8
-        py-3
-        rounded-xl
-        bg-gradient-to-r
-        from-blue-600
-        to-cyan-500
-        hover:scale-105
-        transition
-        font-semibold
-        "
+        className={styles.typing.playAgainButton}
       >
         🔄 Play Again
       </button>
 
       <button
         onClick={() => setIsOpen(false)}
-        className="
-        px-8
-        py-3
-        rounded-xl
-        bg-slate-700
-        hover:bg-slate-600
-        transition
-        font-semibold
-        "
+       className={styles.typing.closeResultButton}
       >
         Close
       </button>

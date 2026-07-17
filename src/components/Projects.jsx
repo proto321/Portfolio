@@ -1,11 +1,11 @@
 import { projects } from "../data/projects";
 import { styles, projectModal  } from "../assets/styles";
+import { motion } from "framer-motion";
 
 import { useState } from "react";
 
 export default function Projects() {
 
-  const [revealed, setRevealed] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
   
@@ -18,8 +18,21 @@ export default function Projects() {
       </div>
 
       <div className={styles.projects.list}>
-        {projects.map((project, index) => (
-          <div key={index} className={styles.projects.card}>
+        {/* {projects.map((project, index) => (
+          <div key={index} className={styles.projects.card}> */}
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className={styles.projects.card}
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.15,
+                ease: "easeOut",
+              }}
+            >
             <div className={styles.projects.cardGrid}>
               {/* Left Side */}
               <div>
@@ -28,25 +41,24 @@ export default function Projects() {
                 <p className={styles.projects.description}>{project.description}</p>
 
                 <div className={styles.projects.buttonRow}>
-                    {/* <a
+                    <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.projects.viewBtn}
                       >
                         Live Demo
-                      </a> */}
+                      </a>
 
-                        <button
-                          // onClick={() => setSelectedProject(project)}
-                          onClick={() => {
-                            setSelectedProject(project);
-                            setCurrentImage(0);
-                          }}
-                          className={styles.projects.viewBtn}
-                        >
-                          View Screenshots
-                        </button>
+                      {/* <button
+                        onClick={() => {
+                          setSelectedProject(project);
+                          setCurrentImage(0);
+                        }}
+                        className={styles.projects.viewBtn}
+                      >
+                        View Project
+                      </button> */}
 
                       <a
                         href={project.github}
@@ -69,29 +81,20 @@ export default function Projects() {
               </div> */}
 
               <div
-                className={`${styles.projects.preview} relative overflow-hidden cursor-pointer`}
-                onClick={() =>
-                  setRevealed(revealed === index ? null : index)
-                }
+                className={`${styles.projects.preview} cursor-pointer group overflow-hidden`}
+                onClick={() => {
+                  setSelectedProject(project);
+                  setCurrentImage(0);
+                }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className={`w-full h-full object-cover rounded-xl transition-all duration-500 ${
-                    revealed === index ? "blur-0 scale-100" : "blur-md scale-105"
-                  }`}
+                  className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
                 />
-
-                {revealed !== index && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl">
-                    <span className="bg-white/90 text-gray-900 px-4 py-2 rounded-full font-semibold shadow-lg">
-                      👁 Click to Preview
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

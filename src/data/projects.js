@@ -69,7 +69,7 @@ export const projects = [
       "/projects/movie/p4.png",
       "/projects/movie/p5.png",
     ],
-    demo: "https://your-demo-link.com",
+    demo: "https://portfolio-iota-sandy-iody0d0pie.vercel.app/",
     image: "/projects/portfolio.png",
   },
 ];

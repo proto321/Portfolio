@@ -1,7 +1,19 @@
 import { styles } from "../assets/styles";
+import { motion } from "framer-motion";
+
 
 export default function Contact() {
   return (
+
+     <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+      }}
+    >
     <section id="contact" className={styles.contact.section}>
       <p className={styles.contact.eyebrow}>Contact</p>
 
@@ -24,5 +36,6 @@ export default function Contact() {
         Get In Touch
       </a>
     </section>
+    </motion.div>
   );
 }
